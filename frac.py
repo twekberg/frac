@@ -24,6 +24,7 @@ def build_parser():
                         help='The denominator of the fractional part of thee number. ')
     return parser
 
+
 class Frac():
     def __init__(self, integer, numerator, denominator):
         self.integer = integer
@@ -44,6 +45,11 @@ class Frac():
     def __str__(self):
         self.normalize()
         return f"{self.integer}, {self.fraction}"
+
+    def __add__(self, other):
+        self.fraction += other.fraction
+        self.integer += other.integer
+        self.normalize()
 
 
 def main(args):
